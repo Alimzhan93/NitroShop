@@ -11,7 +11,6 @@ const cart = () => {
   const cartWrapper = document.querySelector(".cart-wrapper");
   const cartTotal = cartModal.querySelector(".cart-total > span");
   const cartSendBtn = document.querySelector(".cart-confirm");
-
   const openCart = () => {
     const cart = localStorage.getItem("cart")
       ? JSON.parse(localStorage.getItem("cart"))

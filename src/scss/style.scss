@@ -1,16 +1,4 @@
 @import "~bootstrap/scss/bootstrap";
-@font-face {
-  font-family: "GTEestiProText";
-  src: url("../fonts/GT-Eesti-Pro-Text-Bold.OTF") format("opentype");
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: "GTEestiProText";
-  src: url("../fonts/GT-Eesti-Pro-Text-Regular.OTF") format("opentype");
-  font-weight: 500;
-}
-
 body {
   font-family: "GTEestiProText", Arial, sans-serif;
 }
@@ -43,16 +31,16 @@ button {
   transition: all 0.08s ease-in-out;
   user-select: none;
   margin-top: auto;
-  border: 2px solid #005bff;
+  border: 2px solid #ff00a0;
   font-weight: 700;
   outline: none;
   min-height: 32px;
   color: #fff;
-  background-color: #005bff;
+  background-color: #ff00a0;
 
   &:hover {
     color: #fff;
-    background-color: #004ed6;
+    background-color: #ff00a0;
   }
 }
 
@@ -81,13 +69,14 @@ nav {
   .logo {
     display: block;
     height: 28px;
-    width: 156px;
+    width: 122px;
     // margin-left: 15px;
     margin-right: 15px;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: 0;
-    background-image: url("../img/logo.png");
+    text-decoration: none;
+    color: #ff00a0;
   }
 
   .navbar-wrapper {
@@ -111,7 +100,7 @@ nav {
     left: 0;
     z-index: 120;
     background: #ffffff;
-    border: 2px solid #005bff;
+    border: 2px solid #ff00a0;
     width: 200px;
 
     ul {
@@ -148,7 +137,7 @@ nav {
         width: 118px;
         height: 40px;
         border-radius: 3px;
-        background-color: #005bff;
+        background-color: #ff00a0;
         color: #fff;
         font-weight: 700;
         padding: 0;
@@ -192,7 +181,7 @@ nav {
 
     &-wrapper {
       justify-content: flex-start;
-      border: 2px solid #005bff;
+      border: 2px solid #ff00a0;
       border-right-width: 0;
       border-radius: 3px 0 0 3px;
       align-items: stretch;
@@ -226,14 +215,14 @@ nav {
       border-top-right-radius: 3px;
       border-bottom-right-radius: 3px;
       overflow: hidden;
-      background-color: #005bff;
+      background-color: #ff00a0;
 
       button {
         cursor: pointer;
         border-color: transparent;
         height: 100%;
         width: 100%;
-        background-color: #005bff;
+        background-color: #ff00a0;
         border: none;
 
         &::before {
@@ -249,8 +238,57 @@ nav {
     }
   }
 }
-
 #cart {
+  height: 56px;
+  width: 76px;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 8px;
+  margin: 0 15px;
+
+  .counter {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 16px;
+    border-radius: 8px;
+    padding: 0 8px;
+    background-color: #f91155;
+    color: #fff;
+    font-size: 12px;
+    line-height: 16px;
+    font-family: GTEestiProDisplay, Arial, sans-serif;
+    font-weight: 700;
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 1px;
+    color: #001a34;
+    display: inline-block;
+    max-width: 64px;
+    max-height: 64px;
+    pointer-events: none;
+    outline: none;
+    line-height: 0;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .desc {
+    color: #001a34;
+    font-family: GTEestiProDisplay, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
+#favorites {
   height: 56px;
   width: 76px;
   position: relative;
@@ -396,7 +434,7 @@ nav {
       left: 0;
       box-sizing: border-box;
       background: #fff;
-      border: 1px solid #005bff;
+      border: 1px solid #ff00a0;
       border-radius: 2px;
 
       &.checked::after {
@@ -529,6 +567,83 @@ nav {
     }
 
     .card {
+      width: 33%;
+
+      @media (max-width: 992px) {
+        width: 50%;
+      }
+
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+    }
+  }
+
+  &-close {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    cursor: pointer;
+    height: 25px;
+    width: 25px;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath fill='005bff' d='M12 10.587l6.293-6.294a1 1 0 111.414 1.414l-6.293 6.295 6.293 6.294a1 1 0 11-1.414 1.414L12 13.416 5.707 19.71a1 1 0 01-1.414-1.414l6.293-6.294-6.293-6.295a1 1 0 011.414-1.414L12 10.587z'/%3E%3C/svg%3E");
+  }
+
+  &-total {
+    font-size: 18px;
+
+    span {
+      color: #077c24;
+    }
+  }
+
+  &-confirm {
+    display: block;
+    margin-left: auto;
+  }
+}
+.favorites {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000050;
+  z-index: 130;
+
+  &-body {
+    position: relative;
+    margin: auto;
+    width: 1024px;
+    min-height: 200px;
+    max-height: 640px;
+    background-color: #fff;
+    padding: 25px;
+    overflow: auto;
+    border-radius: 3px;
+  }
+
+  &-title {
+    font-size: 28px;
+    color: #4d5f71;
+  }
+
+  &-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 25px 0;
+    border: 1px solid #4d5f713f;
+    border-radius: 3px;
+    padding: 20px;
+
+    #favorites-empty {
+      font-size: 24px;
+      color: #4d5f71;
+    }
+
+    .favorites {
       width: 33%;
 
       @media (max-width: 992px) {

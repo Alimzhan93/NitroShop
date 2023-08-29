@@ -3,7 +3,6 @@ const webpack = require("webpack");
 const miniCss = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-
 module.exports = {
   entry: "./src/index.js",
   output: {
@@ -13,13 +12,25 @@ module.exports = {
   devServer: {
     static: {
       directory: path.join(__dirname, "dist"),
-      publicPath: '/dist'
+      publicPath: "/dist",
     },
     compress: true,
     port: 9000,
     hot: true,
     open: true,
   },
+  optimization: {
+   splitChunks: {
+     cacheGroups: {
+       styles: {
+         name: "styles",
+         type: "css/mini-extract",
+         chunks: "all",
+         enforce: true,
+       },
+     },
+   },
+ },
   module: {
     rules: [
       {
@@ -27,18 +38,6 @@ module.exports = {
         use: [miniCss.loader, "css-loader", "sass-loader"],
       },
     ],
-  },
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        styles: {
-          name: "styles",
-          type: "css/mini-extract",
-          chunks: "all",
-          enforce: true,
-        },
-      },
-    },
   },
   devtool: false,
   plugins: [
