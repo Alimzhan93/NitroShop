@@ -6,6 +6,7 @@ const catalog = () => {
   const catalogModal = document.querySelector(".catalog");
   const catalogModalItems = document.querySelectorAll(".catalog li");
 
+
   let isOpen = false;
 
   btnCatalog.addEventListener("click", () => {
@@ -18,13 +19,16 @@ const catalog = () => {
   });
 
   catalogModalItems.forEach((item) => {
-    item.addEventListener('click', () =>{
-      const text = item.textContent
-     
+    item.addEventListener("click", () => {
+      const text = item.textContent;
+
       getData().then((data) => {
-        renderGoods(categoryFilter(data,text));
+        renderGoods(categoryFilter(data, text));
       });
-    })
+    });
   });
+  // iconFavorites.addEventListener("click", () => {
+  //   console.log("click");
+  // });
 };
 export default catalog;

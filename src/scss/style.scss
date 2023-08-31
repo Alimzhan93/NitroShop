@@ -499,10 +499,27 @@ nav {
     padding: 4px 8px;
     font-size: 14px;
     border-radius: 4px;
-    margin-right: 8px;
+    margin-left: 10px;
     z-index: 111;
   }
-
+ &-iconfavorites{
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 10px;
+    left: 150px;
+    padding: 4px 8px;
+    border-radius: 8px;
+    margin-left: 65px;
+    z-index: 111;
+    border: 1px solid #ffffff;
+    background-color: #ffffff;
+    background-image: url('../../src/static/favicon/img/iconsfavorites24.png');
+    cursor: pointer;
+    &:hover{
+      color: #007bff;
+    }
+ }
   &-title {
     height: 50px;
     overflow: hidden;

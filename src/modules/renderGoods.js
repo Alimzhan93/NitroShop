@@ -11,6 +11,9 @@ const renderGoods = (goods) => {
       `
         <div class="col-12 col-md-6 col-lg-4 col-xl-3">
         <div class="card" data-key="${goodsItem.id}">
+        <button class="card-iconfavorites">
+           
+         </button>
         ${goodsItem.sale ? '<div class="card-sale">🔥Hot Sale🔥</div>' : ""}
           <div class="card-img-wrapper">
             <span
