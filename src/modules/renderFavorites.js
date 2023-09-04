@@ -28,7 +28,7 @@ const renderFavorites = (goods) => {
               <h5 class="card-title">
               ${goodsItem.title}
               </h5>
-              <button class="btn btn-primary">Удалить</button>
+              <button class="btn btn-primary">Добавить в корзину</button>
             </div>
           </div>
           `

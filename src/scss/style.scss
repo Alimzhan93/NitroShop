@@ -514,10 +514,15 @@ nav {
     z-index: 111;
     border: 1px solid #ffffff;
     background-color: #ffffff;
-    background-image: url('../../src/static/favicon/img/iconsfavorites24.png');
+    background-image: url('../../src/static/img/iconsfavorites24.png');
     cursor: pointer;
-    &:hover{
+    color: white;
+    &:hover {
       color: #007bff;
+    }
+  
+    &.favorite {
+      background-color: red; /* Фон красный при добавлении в избранное */
     }
  }
   &-title {

@@ -1,9 +1,11 @@
 import cart from "./modules/cart";
+import favorites from "./modules/favorites";
 import catalog from "./modules/catalog";
 import load from "./modules/load";
 import search from "./modules/search";
 import "./scss/style.scss";
 load();
 cart();
+favorites();
 catalog();
 search();

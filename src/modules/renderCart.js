@@ -1,5 +1,6 @@
 const renderCart = (goods) => {
   const cartWrapper = document.querySelector(".cart-wrapper");
+  
 
   cartWrapper.innerHTML = "";
   if (goods.length === 0) {
