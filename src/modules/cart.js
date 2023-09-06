@@ -1,5 +1,6 @@
 import renderCart from "./renderCart";
 import postsData from "./postData";
+
 const cart = () => {
   const cartBtn = document.getElementById("cart");
   const cartModal = document.querySelector(".cart");
@@ -75,8 +76,10 @@ const cart = () => {
         return sum + goodItem.price;
       }, 0);
       
-      counter--;
-       updateCounter();
+      if (counter > 0) {
+        counter--;
+        updateCounter();
+      }
     
     }
   });

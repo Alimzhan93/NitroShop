@@ -10,7 +10,7 @@ const favorites = () => {
   const favoritesTotal = favoritesModal.querySelector(".favorites-total > span");
   const favoritesSendBtn = favoritesModal.querySelector(".favorites-confirm"); 
   const favoritesCounter = document.querySelector('#favorites .counter')
-
+  const cartCounter = document.querySelector('.counter')
 //отрывает избранное
   const openFavorites = () => {
     const favorites = localStorage.getItem("favorites")
@@ -102,6 +102,8 @@ const favorites = () => {
         // Перерисовываем список избранных и корзину
         renderFavorites(favorites);
         renderCart(cart);
+        
+        cartCounter.textContent = cart.length.toString();
         counterFavorit--; // Уменьшаем счетчик "Избранное"
         updateCounterFavo(); // Обновляем счетчик
       }
