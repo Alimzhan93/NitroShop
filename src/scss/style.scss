@@ -31,16 +31,16 @@ button {
   transition: all 0.08s ease-in-out;
   user-select: none;
   margin-top: auto;
-  border: 2px solid #ff00a0;
+  border: 2px solid teal;
   font-weight: 700;
   outline: none;
   min-height: 32px;
   color: #fff;
-  background-color: #ff00a0;
+  background-color: teal;
 
   &:hover {
     color: #fff;
-    background-color: #ff00a0;
+    background-color: teal;
   }
 }
 
@@ -76,7 +76,7 @@ nav {
     background-size: contain;
     background-position: 0;
     text-decoration: none;
-    color: #ff00a0;
+    color: teal;
   }
 
   .navbar-wrapper {
@@ -100,7 +100,7 @@ nav {
     left: 0;
     z-index: 120;
     background: #ffffff;
-    border: 2px solid #ff00a0;
+    border: 2px solid teal;
     width: 200px;
 
     ul {
@@ -137,7 +137,7 @@ nav {
         width: 118px;
         height: 40px;
         border-radius: 3px;
-        background-color: #ff00a0;
+        background-color: teal;
         color: #fff;
         font-weight: 700;
         padding: 0;
@@ -181,7 +181,7 @@ nav {
 
     &-wrapper {
       justify-content: flex-start;
-      border: 2px solid #ff00a0;
+      border: 2px solid teal;
       border-right-width: 0;
       border-radius: 3px 0 0 3px;
       align-items: stretch;
@@ -215,14 +215,14 @@ nav {
       border-top-right-radius: 3px;
       border-bottom-right-radius: 3px;
       overflow: hidden;
-      background-color: #ff00a0;
+      background-color: teal;
 
       button {
         cursor: pointer;
         border-color: transparent;
         height: 100%;
         width: 100%;
-        background-color: #ff00a0;
+        background-color: teal;
         border: none;
 
         &::before {
@@ -258,7 +258,7 @@ nav {
     height: 16px;
     border-radius: 8px;
     padding: 0 8px;
-    background-color: #f91155;
+    background-color: teal;
     color: #fff;
     font-size: 12px;
     line-height: 16px;
@@ -308,7 +308,7 @@ nav {
     height: 16px;
     border-radius: 8px;
     padding: 0 8px;
-    background-color: #f91155;
+    background-color: teal;
     color: #fff;
     font-size: 12px;
     line-height: 16px;
@@ -434,7 +434,7 @@ nav {
       left: 0;
       box-sizing: border-box;
       background: #fff;
-      border: 1px solid #ff00a0;
+      border: 1px solid teal;
       border-radius: 2px;
 
       &.checked::after {
@@ -700,4 +700,46 @@ nav {
     display: block;
     margin-left: auto;
   }
+}
+.items {
+	font-family: 'Merriweather', serif;
+	background: #f2ede7;
+	border-radius: 8px;
+	width: 120px;
+	display: flex;
+	font-size: 18px;
+	height: 30px;
+	overflow: hidden;
+}
+
+.items__control {
+	width: 40px;
+	cursor: pointer;
+	transition: 0.2s ease-in;
+	text-align: center;
+}
+
+.items__control:hover {
+    background: #eb5a1e;
+    color: #FFF;
+}
+
+.items__current {
+	width: 40px;
+}
+
+/* items--small */
+.items.items--small {
+	width: 90px;
+	font-size: 16px;
+	height: 26px;
+	text-align: center;
+}
+
+.items.items--small .items__control {
+	width: 30px;
+}
+
+.items.items--small .items__current {
+	width: 30px;
 }

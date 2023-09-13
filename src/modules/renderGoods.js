@@ -26,8 +26,15 @@ const renderGoods = (goods) => {
             <h5 class="card-title">
             ${goodsItem.title}
             </h5>
+            <div class="items items--small counter-wrapper">
+            <div class="items__control" data-action="minus">-</div>
+              <div class="items__current" data-counter="">0</div>
+              <div class="items__control" data-action="plus">+</div>
+            </div>
             <button class="btn btn-primary">В корзину</button>
+           
           </div>
+          
         </div>
       </div>
         `

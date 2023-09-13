@@ -1,6 +1,7 @@
 import renderCart from "./renderCart";
 import postsData from "./postData";
-
+import counter from "./counter";
+const counters = counter()
 const cart = () => {
   const cartBtn = document.getElementById("cart");
   const cartModal = document.querySelector(".cart");
@@ -9,7 +10,6 @@ const cart = () => {
   const cartWrapper = document.querySelector(".cart-wrapper");
   const cartTotal = cartModal.querySelector(".cart-total > span");
   const cartSendBtn = document.querySelector(".cart-confirm");
-  const cartCounter = document.querySelector('.counter')
  
  //отрывает корзину
   const openCart = () => {
@@ -31,12 +31,7 @@ const cart = () => {
   };
   cartCloseBtn.addEventListener("click", closenCart);
 
-  let counter = 0; // Изначальное значение счетчика
 
-  function updateCounter() {
-    cartCounter.textContent = counter;
-  }
- 
   goodsWrapper.addEventListener("click", (event) => {
     if (event.target.classList.contains("btn-primary")) {
       const card = event.target.closest(".card");
@@ -50,8 +45,7 @@ const cart = () => {
       });
       cart.push(goodsItem);
       localStorage.setItem("cart", JSON.stringify(cart));
-      counter++;
-      updateCounter();
+      counters.updateCartCounter(1);
     }
   });
 
@@ -66,21 +60,20 @@ const cart = () => {
       const index = cart.findIndex((item) => {
         return item.id === +key;
       });
-      cart.splice(index, 1);
-
-      localStorage.setItem("cart", JSON.stringify(cart));
-
-      renderCart(cart);
-
-      cartTotal.textContent = cart.reduce((sum, goodItem) => {
-        return sum + goodItem.price;
-      }, 0);
-      
-      if (counter > 0) {
-        counter--;
-        updateCounter();
+  
+      if (index !== -1) { // Проверяем, найден ли элемент в корзине
+        cart.splice(index, 1);
+  
+        localStorage.setItem("cart", JSON.stringify(cart));
+  
+        renderCart(cart);
+  
+        cartTotal.textContent = cart.reduce((sum, goodItem) => {
+          return sum + goodItem.price;
+        }, 0);
+  
+        counters.decreaseCartCounter();
       }
-    
     }
   });
 
@@ -94,8 +87,10 @@ const cart = () => {
 
       renderCart([]);
       cartTotal.textContent = 0;
-      counter  = 0;
-       updateCounter();
+      counters.updateCartCounter(1);
+      if (counters <=0){
+        counters = 0
+      }
     });
   });
   
