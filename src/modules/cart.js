@@ -8,8 +8,9 @@ const cart = () => {
   const cartCloseBtn = cartModal.querySelector(".cart-close");
   const goodsWrapper = document.querySelector(".goods");
   const cartWrapper = document.querySelector(".cart-wrapper");
-  const cartTotal = cartModal.querySelector(".cart-total > span");
+  const cartTotal = document.querySelector(".cart-total > span");
   const cartSendBtn = document.querySelector(".cart-confirm");
+
  
  //отрывает корзину
   const openCart = () => {
@@ -17,10 +18,8 @@ const cart = () => {
       ? JSON.parse(localStorage.getItem("cart"))
       : [];
       cartModal.style.display = "flex";
-    
-    renderCart(cart);
-
-    cartTotal.textContent = cart.reduce((sum, goodItem) => {
+      renderCart(cart);
+     cartTotal.textContent = cart.reduce((sum, goodItem) => {
       return sum + goodItem.price;
     }, 0);
   };
@@ -77,22 +76,26 @@ const cart = () => {
     }
   });
 
+  let counter = 0
+  function decreaseCartCounterss(count) {
+    counter = count
+   document.querySelector("#cart .counter").textContent = counter
+   
+  }
   cartSendBtn.addEventListener("click", () => {
     const cart = localStorage.getItem("cart")
       ? JSON.parse(localStorage.getItem("cart"))
       : [];
-
+  
     postsData(cart).then(() => {
       localStorage.removeItem("cart");
-
       renderCart([]);
-      cartTotal.textContent = 0;
-      counters.updateCartCounter(1);
-      if (counters <=0){
-        counters = 0
-      }
-    });
+      cartTotal.textContent = 0; 
+      decreaseCartCounterss(0)     
+    })
   });
+  
+  
   
 };
 export default cart;

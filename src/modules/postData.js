@@ -1,4 +1,5 @@
 const postsData = (cart, favorites) => {
+
   const data = {
     cart: cart,
     favorites: favorites,

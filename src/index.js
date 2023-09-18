@@ -7,7 +7,7 @@ import counter from "./modules/counter";
 import "./scss/style.scss";
 load();
 cart();
-favorites();
+
 catalog();
 search();
 counter();
